@@ -1,5 +1,23 @@
- /* font edit  */
+ /*----------- 
+   font edit
+ -------------  */
  .bold{
      font-size: 18px;
      font-weight: 600;
+ }
+ /*--------------------- 
+    image section 
+ -------------------*/
+ #image{border: 1px solid black;
+     width: 300px;
+     height: 300px;
+     margin: auto;
+     border-radius: 5px;
+     margin-top: 5px;
+ }
+ #image img{
+     width: 100%;
+     height: 100%;
+     border-radius: 5px;
+   
  }

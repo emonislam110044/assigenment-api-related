@@ -7,6 +7,7 @@ const searchData = () => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayResult(data))
+    inputField.value = '';
 }
 
 const displayResult = (data) => {
@@ -27,16 +28,22 @@ const displayResult = (data) => {
     const cardConatainer = document.getElementById('card-container');
     cardConatainer.textContent = '';
 
+
     // display all books 
     allBooks.forEach(book => {
+        // books cover id 
+        const coverId = book.cover_i
+        const url = ` https://covers.openlibrary.org/b/id/${coverId}-M.jpg`
+
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
         <div class="card h-100">
+        <div id="image" ><img src="${url}" class="card-img-top" alt="..."></div>
          <div class="card-body">
             <h5 class="card-title">Title: ${book.title}</h5>
             <p class="card-text"> written by <span class="bold">${book.author_name[0]}</span> </p>
-            <p class="card-text"> first published in <span class="bold"> ${book.publish_date[1] ? book.publish_date : 'not available'}</span> , </p>
+            <p class="card-text"> first published in <span class="bold"> ${book.publish_year[0] ? book.publish_year : 'not available'}</span> , </p>
              <p class="card-text"> published by <span class="bold">${book.publisher[0]}</span> </p>
          </div>
         </div>
